@@ -55,7 +55,7 @@ conda create -n <environment-name> --file requirements.txt
 | FHDMi | [Google Drive](https://drive.google.com/drive/folders/???) |
 | UHDM | [Google Drive](https://drive.google.com/drive/folders/???) |
 
-1. Execute the following commands:
+2. Execute the following commands:
 ```bash
 # for LCDMoiré
 CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/aim2019_demoireing_track1" --resume "path-to-aim-checkpoint"
