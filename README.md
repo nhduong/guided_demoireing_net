@@ -1,42 +1,101 @@
-# Academic Project Page Template
-This is an academic paper project page template.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <!-- <a href="https://nhduong.github.io/">
+    <img src="dgu.png" alt="Logo" width="224" height="224">
+  </a> -->
 
+  <h3 align="center">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h3>
 
-Example project pages built using this template are:
-- https://www.vision.huji.ac.il/deepsim/
-- https://www.vision.huji.ac.il/3d_ads/
-- https://www.vision.huji.ac.il/ssrl_ad/
-- https://www.vision.huji.ac.il/conffusion/
+  <p align="center">
+    <a href="mailto:duongnguyen@mme.dongguk.edu" target="_blank">Duong Hai Nguyen</a><sup>1</sup>,
+    <a href="mailto:seholee@jbnu.ac.kr" target="_blank">Se-Ho Lee</a><sup>2</sup>, and 
+    <a href="mailto:chullee@dongguk.edu" target="_blank">Chul Lee</a><sup>1</sup>
+    <br>
+    <sup>1</sup>Department of Multimedia Engineering, Dongguk University, South Korea<br>
+    <sup>2</sup>Department of Information and Engineering, Jeonbuk National University, South Korea<br>
+    <br>
+    <a href="https://nhduong.github.io/guided_demoireing_net">Project Page</a>
+    ·
+    <a href="...">Technical Report</a>
+  </p>
+</p>
 
+<br>
+<br>
+<br>
 
-## Start using the template
-To start using the template click on `Use this Template`.
+# Installation
+1. Clone this repo:
+```bash
+git clone https://github.com/nhduong/guided_adaptive_demoireing.git
+```
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+2. Install dependencies:
+```bash
+conda create -n <environment-name> --file requirements.txt
+```
 
-## Components
-- Teaser video
-- Images Carousel
-- Youtube embedding
-- Video Carousel
-- PDF Poster
-- Bibtex citation
+3. Download datasets
 
-## Tips:
-- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
-- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
-(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
-- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
-- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
-- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
-- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
-- This project page can also be made into a github pages website.
-- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
-- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
+| Dataset | Download Link |
+| :---: | :---: |
+| LCDMoiré | [CodaLab](https://competitions.codalab.org/competitions/20165) |
+| TIP2018 | [Google Drive](https://drive.google.com/drive/folders/109cAIZ0ffKLt34P7hOMKUO14j3gww2UC) |
+| FHDMi | [Google Drive](https://drive.google.com/drive/folders/1IJSeBXepXFpNAvL5OyZ2Y1yu4KPvDxN5) |
+| UHDM | [Google Drive](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e) |
 
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+# Testing
+1. Download pretrained models
 
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+| Dataset | Pretrained Model |
+| :---: | :---: |
+| LCDMoiré | [Google Drive](https://drive.google.com/drive/folders/???) |
+| TIP2018 | [Google Drive](https://drive.google.com/drive/folders/???) |
+| FHDMi | [Google Drive](https://drive.google.com/drive/folders/???) |
+| UHDM | [Google Drive](https://drive.google.com/drive/folders/???) |
+
+1. Execute the following commands:
+```bash
+# for LCDMoiré
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/aim2019_demoireing_track1" --resume "path-to-aim-checkpoint"
+
+# for TIP2018
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name tip18 --T_0 10 --print-freq 1000 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" --epochs 80 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 79 --evaluate --data_path "path-to/TIP2018_original" --resume "path-to-tip-checkpoint"
+
+# for FHDMi
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name fhdmi --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/FHDMi_complete" --resume "path-to-fhdmi-checkpoint"
+
+# for UHDM
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name uhdm --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/UHDM_DATA" --resume "path-to-uhdm-checkpoint"
+
+```
+
+# Training
+
+Run the following commands:
+
+```bash
+# for LCDMoiré
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/aim2019_demoireing_track1"
+
+# for TIP2018
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name tip18 --T_0 10 --print-freq 1000 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 80 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/TIP2018_original"
+
+# for FHDMi
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name fhdmi --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/FHDMi_complete"
+
+# for UHDM
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name uhdm --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/UHDM_DATA"
+```
+
+# Citation
+If you find this work useful for your research, please cite our paper:
+```
+@article{2023_nguyen_gad,
+  title={Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing},
+  author={Nguyen, Duong Hai and Lee, Se-Ho and Lee, Chul},
+  journal={submitted},
+  year={2023}
+}
+```
