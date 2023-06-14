@@ -5,7 +5,7 @@
     <img src="dgu.png" alt="Logo" width="224" height="224">
   </a> -->
 
-  <h3 align="center">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h3>
+  <h2 align="center">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h2>
 
   <p align="center">
     <a href="mailto:duongnguyen@mme.dongguk.edu" target="_blank">Duong Hai Nguyen</a><sup>1</sup>,
@@ -99,3 +99,8 @@ If you find this work useful for your research, please cite our paper:
   year={2023}
 }
 ```
+
+The code is released under the MIT license. See [LICENSE](https://choosealicense.com/licenses/mit/) for additional details.
+
+# Acknowledgements
+This code is built on [ImageNet training in PyTorch](https://github.com/pytorch/examples/tree/main/imagenet) and [UHDM](https://github.com/CVMI-Lab/UHDM).
