@@ -58,16 +58,28 @@ conda create -n <environment-name> --file requirements.txt
 2. Execute the following commands:
 ```bash
 # for LCDMoiré
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/aim2019_demoireing_track1" --resume "path-to-aim-checkpoint"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+    --data_path "path-to/aim2019_demoireing_track1" \
+    --data_name aim --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" \
+    --resume "path-to/pretrained_models/aim" --evaluate_epochs 0
 
 # for TIP2018
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name tip18 --T_0 10 --print-freq 1000 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" --epochs 80 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 79 --evaluate --data_path "path-to/TIP2018_original" --resume "path-to-tip-checkpoint"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+    --data_path "path-to/TIP2018_original" \
+    --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
+    --resume "path-to/pretrained_models/tip18" --evaluate_epochs 0
 
 # for FHDMi
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name fhdmi --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/FHDMi_complete" --resume "path-to-fhdmi-checkpoint"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+    --data_path "path-to/FHDMi_complete" \
+    --data_name fhdmi --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" \
+    --resume "path-to/pretrained_models/fhdmi" --evaluate_epochs 0 --num_branches 4
 
 # for UHDM
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name uhdm --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --evaluate_epochs 199 --evaluate --data_path "path-to/UHDM_DATA" --resume "path-to-uhdm-checkpoint"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+    --data_path "path-to/UHDM_DATA" \
+    --data_name uhdm --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" \
+    --resume "path-to/pretrained_models/uhdm" --evaluate_epochs 0 --num_branches 4
 
 ```
 
@@ -77,16 +89,16 @@ Run the following commands:
 
 ```bash
 # for LCDMoiré
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/aim2019_demoireing_track1"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch_size 2 --workers 4 --exp_name SPL --data_name aim --T_0 50 --print_freq 1000 --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" --dont_calc_mets_at_all --epochs 200 --test_batch_size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/aim2019_demoireing_track1"
 
 # for TIP2018
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name tip18 --T_0 10 --print-freq 1000 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 80 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/TIP2018_original"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch_size 2 --workers 4 --exp_name SPL --data_name tip18 --T_0 10 --print_freq 1000 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 80 --test_batch_size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/TIP2018_original"
 
 # for FHDMi
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name fhdmi --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/FHDMi_complete"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch_size 2 --workers 4 --exp_name SPL --data_name fhdmi --T_0 50 --print_freq 1000 --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" --dont_calc_mets_at_all --epochs 200 --test_batch_size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/FHDMi_complete"
 
 # for UHDM
-CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch-size 2 --workers 4 --exp_name SPL --data_name uhdm --T_0 50 --print-freq 1000 --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" --dont_calc_mets_at_all --epochs 200 --test-batch-size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/UHDM_DATA"
+CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --batch_size 2 --workers 4 --exp_name SPL --data_name uhdm --T_0 50 --print_freq 1000 --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" --dont_calc_mets_at_all --epochs 200 --test_batch_size 1 --note testing --affine --l1loss --adaloss --perloss --data_path "path-to/UHDM_DATA"
 ```
 
 # Citation
