@@ -46,16 +46,9 @@ conda create -n <environment-name> --file requirements.txt
 | UHDM | [Google Drive](https://drive.google.com/drive/folders/1DyA84UqM7zf3CeoEBNmTi_dJ649x2e7e) |
 
 # Testing
-1. Download pretrained models
+1. Download [pretrained models](https://drive.google.com/drive/folders/???)
 
-| Dataset | Pretrained Model |
-| :---: | :---: |
-| LCDMoiré | [Google Drive](https://drive.google.com/drive/folders/???) |
-| TIP2018 | [Google Drive](https://drive.google.com/drive/folders/???) |
-| FHDMi | [Google Drive](https://drive.google.com/drive/folders/???) |
-| UHDM | [Google Drive](https://drive.google.com/drive/folders/???) |
-
-2. Execute the following commands:
+2. Execute the following commands
 ```bash
 # for LCDMoiré
 CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
@@ -85,7 +78,7 @@ CUDA_VISIBLE_DEVICES="GPU_ID" python main.py --test_batch_size 1 --affine --l1lo
 
 # Training
 
-Run the following commands:
+Run the following commands
 
 ```bash
 # for LCDMoiré
