@@ -23,7 +23,6 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <title>Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -46,13 +45,13 @@
 </head>
 <body>
 
-
-  <section class="hero">
+  <!-- dark mode -->
+  <section class="hero" style="background-color: #171717; color: #d1d1d1;">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h1>
+            <h1 class="title is-1 publication-title" style="color: #ffffff;">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -69,7 +68,7 @@
                       <sup>1</sup>Department of Multimedia Engineering, Dongguk University, South Korea<br>
                       <sup>2</sup>Department of Information and Engineering, Jeonbuk National University, South Korea<br>
                       <!-- Conferance name and year -->
-                      (submitted)
+                      (accepted for publication in IEEE Signal Processing Letters)
                     </span>
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
@@ -129,24 +128,24 @@
 </section>
 
 <!-- Paper abstract -->
-<!-- <section class="section hero is-light">
+<section class="section hero is-light" style="background-color: #303030; color: #d1d1d1;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3" style="color: #ffffff;">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            ...
+            In this letter, we propose a multiscale coarse-to-fine guided screenshot demoiréing algorithm. We first extract the multiscale feature of the input image. Then, we develop  the multiscale guided restoration block (MGRB), which removes moiré patterns with the guidance of multiscale information by exploiting the correlation between moiré frequencies. To this end, we design two blocks for feature modulation and moiré pattern removal. In addition, to further improve the performance, we develop an adaptive reconstruction loss to direct the network to focus on regions that are difficult to restore. Experimental results on multiple datasets demonstrate that the proposed algorithm provides comparable or even better demoiréing performance than state-of-the-art algorithms.
           </p>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 <!-- End paper abstract -->
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<section class="hero is-small" style="background-color: #303030; color: #d1d1d1;">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-20"></h2>
@@ -170,7 +169,7 @@
           </video>
         </div>
       </div>
-      <h2 class="subtitle has-text-centered">
+      <h2 class="subtitle has-text-centered" style="color: #ffffff;">
         Qualitative comparisons of demoireing results on the UHDM dataset.<br>
         Given a moiré image, from left to right, top to bottom, the magnified views show the results of
           <a href="https://ieeexplore.ieee.org/document/8356681" target="_blank">DMCNN</a>,
@@ -188,14 +187,15 @@
 <!-- End video carousel -->
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+  <section class="section" id="BibTeX" style="background-color: #303030; color: #d1d1d1;">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
+      <h2 class="title" style="color: #ffffff;">BibTeX</h2>
+      <pre style="background-color: #535353; color: #d1d1d1;"><code>
         @article{2023_nguyen_gad,
           title={Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing},
           author={Duong Hai, Nguyen and Se-Ho, Lee and Chul, Lee},
-          journal={submitted},
+          journal={accepted for publication in IEEE Signal Processing Letters},
+          month=jul,
           year={2023}
         }
       </code></pre>
@@ -203,18 +203,16 @@
 </section>
 <!--End BibTex citation -->
 
-  <footer class="footer">
+  <footer class="footer" style="background-color: #000000; color: #d1d1d1;">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
             <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
@@ -225,7 +223,7 @@
   
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-    <!-- End of Statcounter Code -->
+<!-- End of Statcounter Code -->
 
-  </body>
-  </html>
+</body>
+</html>
