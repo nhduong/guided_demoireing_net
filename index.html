@@ -87,7 +87,7 @@
                     </span>
 
                     <!-- Supplementary PDF link -->
-                    <span class="link-block">
+                    <!-- <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
@@ -95,7 +95,7 @@
                       </span>
                       <span>Supplementary</span>
                     </a>
-                  </span>
+                  </span> -->
 
                   <!-- Github link -->
                   <span class="link-block">
@@ -109,16 +109,15 @@
                 </span>
 
                 <!-- ArXiv abstract Link -->
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
-
                 </a>
-              </span>
+              </span> -->
             </div>
           </div>
         </div>
@@ -126,23 +125,6 @@
     </div>
   </div>
 </section>
-
-<!-- Paper abstract -->
-<section class="section hero is-light" style="background-color: #303030; color: #d1d1d1;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: #ffffff;">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In this letter, we propose a multiscale coarse-to-fine guided screenshot demoiréing algorithm. We first extract the multiscale feature of the input image. Then, we develop  the multiscale guided restoration block (MGRB), which removes moiré patterns with the guidance of multiscale information by exploiting the correlation between moiré frequencies. To this end, we design two blocks for feature modulation and moiré pattern removal. In addition, to further improve the performance, we develop an adaptive reconstruction loss to direct the network to focus on regions that are difficult to restore. Experimental results on multiple datasets demonstrate that the proposed algorithm provides comparable or even better demoiréing performance than state-of-the-art algorithms.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
 
 <!-- Video carousel -->
 <section class="hero is-small" style="background-color: #303030; color: #d1d1d1;">
@@ -186,18 +168,62 @@
 </section>
 <!-- End video carousel -->
 
+<!-- Paper abstract -->
+<section class="section hero is-light" style="background-color: #303030; color: #d1d1d1;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #ffffff;">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this letter, we propose a multiscale coarse-to-fine guided screenshot demoiréing algorithm. We first extract the multiscale feature of the input image. Then, we develop  the multiscale guided restoration block (MGRB), which removes moiré patterns with the guidance of multiscale information by exploiting the correlation between moiré frequencies. To this end, we design two blocks for feature modulation and moiré pattern removal. In addition, to further improve the performance, we develop an adaptive reconstruction loss to direct the network to focus on regions that are difficult to restore. Experimental results on multiple datasets demonstrate that the proposed algorithm provides comparable or even better demoiréing performance than state-of-the-art algorithms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Net architecture -->
+<section class="section is-small is-centered has-text-centered">
+  <div class="hero-body">
+    <div class="container">
+      <!-- <h2 class="title is-3" style="color: #000000;"></h2> -->
+      <img src="./static/images/img.png" alt=""/>
+    </div>
+  </div>
+</section>
+<!-- End net architecture -->
+
+<!-- Quantitative results -->
+<!-- <section class="section is-small is-centered has-text-centered">
+  <div class="hero-body">
+    <div class="container">
+      <img src="./static/images/results.png" alt=""/>
+    </div>
+  </div>
+</section> -->
+<!-- End quantitative results -->
+
 <!--BibTex citation -->
-  <section class="section" id="BibTeX" style="background-color: #303030; color: #d1d1d1;">
+  <!-- <section class="section" id="BibTeX" style="background-color: #303030; color: #d1d1d1;"> -->
+  <section class="section" id="BibTeX" style="background-color: #ffffff; color: #141414;">
     <div class="container is-max-desktop content">
-      <h2 class="title" style="color: #ffffff;">BibTeX</h2>
-      <pre style="background-color: #535353; color: #d1d1d1;"><code>
-        @article{2023_nguyen_gad,
-          title={Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing},
-          author={Duong Hai, Nguyen and Se-Ho, Lee and Chul, Lee},
-          journal={accepted for publication in IEEE Signal Processing Letters},
-          month=jul,
-          year={2023}
-        }
+      <!-- <h2 class="title" style="color: #ffffff;">BibTeX</h2> -->
+      <h2 class="title" style="color: #181818;">BibTeX</h2>
+      <!-- <pre style="background-color: #535353; color: #d1d1d1;"><code> -->
+      <pre style="background-color: #f0f0f0; color: #000000;"><code>
+@article{2023_nguyen_gad,
+  title   = {Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing},
+  author  = {Duong Hai, Nguyen and Se-Ho, Lee and Chul, Lee},
+  journal = {IEEE Signal Process. Lett.},
+  volume  = {},
+  number  = {},
+  pages   = {},
+  month   = jul,
+  year    = {2023}
+}
       </code></pre>
     </div>
 </section>
