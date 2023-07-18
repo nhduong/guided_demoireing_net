@@ -197,7 +197,7 @@ def main():
     args.path = log_dir
 
     # PyTorch device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     # create model
     print("=> creating model...")
