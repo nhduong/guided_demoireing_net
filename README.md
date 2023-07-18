@@ -119,7 +119,7 @@ for epoch in {190..199} ; do
 done
 
 # for TIP2018
-for epoch in {190..199} ; do
+for epoch in {70..79} ; do
   CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
         --data_path "path_to/TIP2018_original" \
         --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
