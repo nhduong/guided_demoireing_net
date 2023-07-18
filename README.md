@@ -14,6 +14,8 @@
     <br>
     <sup>1</sup>Department of Multimedia Engineering, Dongguk University, South Korea<br>
     <sup>2</sup>Department of Information and Engineering, Jeonbuk National University, South Korea<br>
+    IEEE Signal Processing Letters 2023
+    <br>
     <br>
     <a href="https://nhduong.github.io/guided_demoireing_net">Project Page</a>
     ·
