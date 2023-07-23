@@ -5,7 +5,7 @@
     <img src="dgu.png" alt="Logo" width="224" height="224">
   </a> -->
 
-  <h2 align="center">Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing</h2>
+  <h2 align="center">Multiscale Coarse-to-Fine Guided Screenshot Demoiréing</h2>
 
   <p align="center">
     <a href="mailto:duongnguyen@mme.dongguk.edu" target="_blank">Duong Hai Nguyen</a><sup>1</sup>,
@@ -148,7 +148,7 @@ If you find this work useful for your research, please cite our paper:
 ```
 @article{2023_nguyen_gad,
   author  = {Duong Hai, Nguyen and Se-Ho, Lee and Chul, Lee},
-  title   = {Multiscale Guided Coarse-to-Fine Network for Screenshot Demoiréing},
+  title   = {Multiscale Coarse-to-Fine Guided Screenshot Demoiréing},
   journal = {IEEE Signal Processing Letters},
   volume  = {},
   number  = {},
