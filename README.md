@@ -53,25 +53,25 @@ conda create -n <environment-name> --file requirements.txt
 2. Execute the following commands
 ```bash
 # for LCDMoiré
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/aim2019_demoireing_track1" \
       --data_name aim --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" \
       --resume "path_to/aim/checkpoint.pth.tar"
 
 # for TIP2018
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/TIP2018_original" \
       --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
       --resume "path_to/tip18/checkpoint.pth.tar"
 
 # for FHDMi
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/FHDMi_complete" \
       --data_name fhdmi --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" \
       --resume "path_to/fhdmi/checkpoint.pth.tar" --num_branches 4
 
 # for UHDM
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
         --data_path "path_to/UHDM_DATA" \
         --data_name uhdm --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" \
         --resume "path_to/uhdm/checkpoint.pth.tar" --num_branches 4
