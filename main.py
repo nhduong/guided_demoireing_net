@@ -82,8 +82,8 @@ def parse():
                         help='manual epoch number (useful on restarts)')
     parser.add_argument('-b', '--batch_size', default=2, type=int,
                         metavar='N', help='mini-batch size per process (default: 2)')
-    parser.add_argument('--test_batch_size', default=2, type=int,
-                        metavar='N', help='test mini-batch size per process (default: 2)')
+    parser.add_argument('--test_batch_size', default=1, type=int,
+                        metavar='N', help='test mini-batch size per process (default: 1)')
     parser.add_argument('--lr', '--learning_rate', default=0.0002, type=float,
                         metavar='LR', help='Initial learning rate.  Will be scaled by <global batch size>/2: args.lr = args.lr*float(args.batch_size*args.world_size)/2.')
     parser.add_argument('--eta_min', default=0.000001, type=float,
