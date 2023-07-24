@@ -53,25 +53,25 @@ conda create -n <environment-name> --file requirements.txt
 2. Execute the following commands
 ```bash
 # for LCDMoiré
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/aim2019_demoireing_track1" \
       --data_name aim --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" \
       --resume "path_to/aim/checkpoint.pth.tar"
 
 # for TIP2018
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/TIP2018_original" \
       --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
       --resume "path_to/tip18/checkpoint.pth.tar"
 
 # for FHDMi
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate \
       --data_path "path_to/FHDMi_complete" \
       --data_name fhdmi --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" \
       --resume "path_to/fhdmi/checkpoint.pth.tar" --num_branches 4
 
 # for UHDM
-CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate \
+CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate \
         --data_path "path_to/UHDM_DATA" \
         --data_name uhdm --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" \
         --resume "path_to/uhdm/checkpoint.pth.tar" --num_branches 4
@@ -84,35 +84,36 @@ CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yam
 
 ```bash
 # for LCDMoiré
-CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
     --data_path "path_to/aim2019_demoireing_track1" \
     --data_name aim --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" \
     --batch_size 2 --T_0 50 --epochs 200 --init_weights &
 
 # for TIP2018
-CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
     --data_path "path_to/TIP2018_original" \
     --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
     --batch_size 2 --T_0 10 --epochs 80 --init_weights &
 
 # for FHDMi
-CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
     --data_path "path_to/FHDMi_complete" \
     --data_name fhdmi --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" \
     --batch_size 2 --T_0 50 --epochs 200 --init_weights --num_branches 4 &
 
 # for UHDM
-CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
+CUDA_VISIBLE_DEVICES="GPU_ID" nohup accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --dont_calc_mets_at_all --log2file \
     --data_path "path_to/UHDM_DATA" \
     --data_name uhdm --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" \
     --batch_size 2 --T_0 50 --epochs 200 --init_weights --num_branches 4 &
 ```
 
-2. Finding the best checkpoints from the last training steps
+2. Monitoring the training process via `tail -f outputs/<path_to_the_experiment>/<experiment_name>.log`
+3. Finding the best checkpoints from the last training steps
 ```bash
 # for LCDMoiré
 for epoch in {190..199} ; do
-  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate --log2file \
         --data_path "path_to/aim2019_demoireing_track1" \
         --data_name aim --train_dir "train" --test_dir "val" --moire_dir "moire" --clean_dir "clear" \
         --resume "path_to/0${epoch}_checkpoint.pth.tar"
@@ -120,7 +121,7 @@ done
 
 # for TIP2018
 for epoch in {70..79} ; do
-  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate --log2file \
         --data_path "path_to/TIP2018_original" \
         --data_name tip18 --train_dir "trainData" --test_dir "testData" --moire_dir "source" --clean_dir "target" \
         --resume "path_to/0${epoch}_checkpoint.pth.tar"
@@ -128,7 +129,7 @@ done
 
 # for FHDMi
 for epoch in {190..199} ; do
-  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate --log2file \
         --data_path "path_to/FHDMi_complete" \
         --data_name fhdmi --train_dir "train" --test_dir "test" --moire_dir "source" --clean_dir "target" \
         --resume "path_to/0${epoch}_checkpoint.pth.tar" --num_branches 4
@@ -136,7 +137,7 @@ done
 
 # for UHDM
 for epoch in {190..199} ; do
-  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml --mixed_precision=fp16 main.py --test_batch_size 1 --affine --l1loss --adaloss --perloss --evaluate --log2file \
+  CUDA_VISIBLE_DEVICES="GPU_ID" accelerate launch --config_file default_config.yaml main.py --affine --l1loss --adaloss --perloss --evaluate --log2file \
           --data_path "path_to/UHDM_DATA" \
           --data_name uhdm --train_dir "train" --test_dir "test" --moire_dir "" --clean_dir "" \
           --resume "path_to/0${epoch}_checkpoint.pth.tar" --num_branches 4
