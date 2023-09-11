@@ -151,9 +151,9 @@ If you find this work useful for your research, please cite our paper:
   author  = {Duong Hai, Nguyen and Se-Ho, Lee and Chul, Lee},
   title   = {Multiscale Coarse-to-Fine Guided Screenshot Demoiréing},
   journal = {IEEE Signal Processing Letters},
-  volume  = {},
+  volume  = {30},
   number  = {},
-  pages   = {},
+  pages   = {898-902},
   month   = jul,
   year    = {2023},
   doi     = {10.1109/LSP.2023.3296039}
